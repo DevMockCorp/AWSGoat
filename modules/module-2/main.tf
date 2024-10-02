@@ -121,7 +121,7 @@ resource "aws_security_group" "database-security-group" {
   }
 
   tags = {
-    Name = "rds-db-sg"
+    Name = "rds-db-sg2"
   }
 
 }
@@ -456,13 +456,13 @@ resource "aws_lb_listener" "listener" {
 }
 
 
-resource "aws_secretsmanager_secret" "rds_creds" {
-  name                    = "RDS_CREDS"
+resource "aws_secretsmanager_secret" "rds_creds2" {
+  name                    = "RDS_CREDS2"
   recovery_window_in_days = 0
 }
 
 resource "aws_secretsmanager_secret_version" "secret_version" {
-  secret_id     = aws_secretsmanager_secret.rds_creds.id
+  secret_id     = aws_secretsmanager_secret.rds_creds2.id
   secret_string = <<EOF
    {
     "username": "root",
